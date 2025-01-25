@@ -9,7 +9,7 @@
 #include "ESCVP.h"
 
 #ifndef _WIN32
-#define strcpy_s(dest, size, src) strncpy(dest, src, size)  
+    #define strcpy_s(dest, size, src) strncpy(dest, src, size)  
 #endif
 
 namespace ESCVP

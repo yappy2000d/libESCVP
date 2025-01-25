@@ -26,7 +26,7 @@ namespace ESCVP
     using STR = char[16];
     using USHORT = uint16_t;
 
-    extern "C" struct LIBESCVP_API Header
+    struct LIBESCVP_API Header
     {
         enum class Identifier : UCHAR
         {
@@ -49,7 +49,7 @@ namespace ESCVP
      * - attribute = 1: Plain (no encoding)
      * - infomation: Password (16 bytes)
      */
-    extern "C" struct LIBESCVP_API PasswordHeader : Header
+    struct LIBESCVP_API PasswordHeader : Header
     {
         PasswordHeader();                               ///< No password
         PasswordHeader(const STR password);	            ///< Plain (no encoding)
@@ -58,7 +58,7 @@ namespace ESCVP
     /**
      * @brief New-Password header
      */
-    extern "C" struct LIBESCVP_API NewPasswordHeader : Header
+    struct LIBESCVP_API NewPasswordHeader : Header
     {
         NewPasswordHeader();
         NewPasswordHeader(const STR projector_name);    ///< Plain (no encoding)
@@ -73,7 +73,7 @@ namespace ESCVP
      * - attribute = 3: EUC-JP (Reserved)
      * - infomation: Projector name (16 bytes)
      */
-    extern "C" struct LIBESCVP_API ProjectorNameHeader : Header
+    struct LIBESCVP_API ProjectorNameHeader : Header
     {
         enum class Encoding : UCHAR
         {
@@ -102,7 +102,7 @@ namespace ESCVP
      * - attribute = others: Reserved
      * - infomation: all bytes are 0x00
      */
-    extern "C" struct LIBESCVP_API IMTypeHeader : Header
+    struct LIBESCVP_API IMTypeHeader : Header
     {
         IMTypeHeader(const UCHAR im_type = 0x00);
     };
@@ -114,7 +114,7 @@ namespace ESCVP
      * - attribute = 0x21: ESC/VP21
      * - infomation: all bytes are 0x00
      */
-    extern "C" struct LIBESCVP_API ProjectorCmdTypeHeader : Header
+    struct LIBESCVP_API ProjectorCmdTypeHeader : Header
     {
         enum class CmdType : UCHAR
         {
@@ -129,7 +129,7 @@ namespace ESCVP
      * @details
      * An ESC/VP.net packet consists of a common part and number of "headers".
      */
-    extern "C" struct LIBESCVP_API CommonPart
+    struct LIBESCVP_API CommonPart
     {
         enum class Type : UCHAR
         {
